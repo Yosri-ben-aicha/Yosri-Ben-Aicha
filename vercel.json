@@ -1,7 +1,4 @@
 {
-  "buildCommand": "next build",
-  "devCommand": "next dev",
-  "installCommand": "bun install",
   "framework": "nextjs",
   "regions": ["cdg1"],
   "headers": [
@@ -25,12 +22,6 @@
           "value": "strict-origin-when-cross-origin"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
     }
   ]
 }

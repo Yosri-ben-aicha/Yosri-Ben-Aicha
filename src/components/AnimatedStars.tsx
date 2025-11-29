@@ -6,6 +6,9 @@ export default function AnimatedStars() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === "undefined") return;
+    
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -14,6 +17,7 @@ export default function AnimatedStars() {
 
     // Set canvas size
     const resizeCanvas = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
@@ -79,6 +83,7 @@ export default function AnimatedStars() {
     // Animation loop
     let animationFrameId: number;
     const animate = () => {
+      if (!canvas || !ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach((star) => {
         star.update();
@@ -90,7 +95,9 @@ export default function AnimatedStars() {
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, []);
 
