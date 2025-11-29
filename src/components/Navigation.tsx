@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Linkedin, Github, Menu, X } from "lucide-react";
+import { Linkedin, Github, Menu, X, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -50,9 +50,9 @@ export default function Navigation({ activeSection, onNavClick }: NavigationProp
         <div className="flex items-center justify-between h-16 md:h-20">
           <button
             onClick={() => handleNavClick("home")}
-            className="text-xl md:text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
+            className="text-xl md:text-2xl font-bold text-primary hover:opacity-80 transition-opacity font-mono"
           >
-            Yosri Ben Aicha
+            &lt;yosri.ben-aicha/&gt;
           </button>
 
           {/* Desktop Navigation */}
@@ -95,9 +95,14 @@ export default function Navigation({ activeSection, onNavClick }: NavigationProp
             </a>
             <Button
               onClick={() => handleNavClick("contact")}
-              className="bg-primary hover:bg-primary/90"
+              variant="outline"
+              className="border-primary/20 hover:bg-primary/10"
+              asChild
             >
-              Me Contacter
+              <a href="mailto:benaicha@et.esiea.fr">
+                <FileText className="w-4 h-4 mr-2" />
+                Télécharger CV
+              </a>
             </Button>
           </div>
 
