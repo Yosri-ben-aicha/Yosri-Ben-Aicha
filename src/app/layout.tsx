@@ -46,17 +46,37 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/logo.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "Yosri Ben Aicha - Ingénieur IA & Data Scientist",
     description: "Portfolio professionnel de Yosri Ben Aicha, spécialisé en intelligence artificielle, machine learning et data science. Disponible pour stage Février 2026.",
     type: "website",
     locale: "fr_FR",
     siteName: "Yosri Ben Aicha Portfolio",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Yosri Ben Aicha - Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Yosri Ben Aicha - Ingénieur IA & Data Scientist",
     description: "Portfolio professionnel spécialisé en intelligence artificielle et data science",
+    images: ["/logo.png"],
   },
   viewport: {
     width: "device-width",
