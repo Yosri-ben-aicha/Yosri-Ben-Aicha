@@ -94,7 +94,7 @@ export default function Skills() {
     <Section
       id="skills"
       subtitle="Compétences"
-      title="Arsenal de Technologies"
+      title="Stack Technologique"
     >
       <div className="max-w-6xl mx-auto">
         <p className="text-muted-foreground mb-12 text-lg text-center">
