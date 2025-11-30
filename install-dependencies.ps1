@@ -69,7 +69,7 @@ if ($LASTEXITCODE -eq 0) {
 } else {
     Write-Host ""
     Write-Host "❌ Erreur lors de l'installation" -ForegroundColor Red
-    Write-Host "   Vérifiez les messages d'erreur ci-dessus" -ForegroundColor Yellow
+    Write-Host "   Verifiez les messages d'erreur ci-dessus" -ForegroundColor Yellow
     exit 1
 }
 
