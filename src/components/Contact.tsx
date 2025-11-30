@@ -29,25 +29,39 @@ export default function Contact() {
     setSubmitStatus("idle");
 
     try {
-      // Utiliser mailto comme solution immédiate
-      // Pour une solution plus avancée, utilisez EmailJS ou un service d'API
-      const mailtoLink = `mailto:benaicha@et.esiea.fr?subject=${encodeURIComponent(
-        formData.subject || "Message depuis le portfolio"
-      )}&body=${encodeURIComponent(
-        `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`;
-      
-      window.location.href = mailtoLink;
-      
-      // Simuler un succès après un court délai
-      setTimeout(() => {
+      // Envoyer via l'API
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        // Ouvrir le client email avec le message pré-rempli
+        const mailtoLink = `mailto:benaicha@et.esiea.fr?subject=${encodeURIComponent(
+          formData.subject || "Message depuis le portfolio"
+        )}&body=${encodeURIComponent(
+          `Bonjour Yosri,\n\n${formData.message}\n\nCordialement,\n${formData.name}\n${formData.email}`
+        )}`;
+        
+        window.location.href = mailtoLink;
+        
         setSubmitStatus("success");
         setIsSubmitting(false);
         setFormData({ name: "", email: "", subject: "", message: "" });
         
-        // Réinitialiser le statut après 3 secondes
-        setTimeout(() => setSubmitStatus("idle"), 3000);
-      }, 500);
+        // Réinitialiser le statut après 5 secondes
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      } else {
+        throw new Error("Erreur lors de l'envoi");
+      }
     } catch (error) {
       setSubmitStatus("error");
       setIsSubmitting(false);
