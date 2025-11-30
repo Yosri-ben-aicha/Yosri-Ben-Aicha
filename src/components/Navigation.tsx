@@ -108,9 +108,10 @@ export default function Navigation({ activeSection, onNavClick }: NavigationProp
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors"
+            className="lg:hidden p-3 rounded-lg hover:bg-primary/10 active:bg-primary/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
               <X className="w-6 h-6" />

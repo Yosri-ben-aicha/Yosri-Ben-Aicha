@@ -58,13 +58,15 @@ export default function SkillBadge({ name, icon: Icon, color }: SkillBadgeProps)
                 <Badge
                   className={`
                     ${color} 
-                    px-4 py-2.5 
-                    text-sm font-medium 
+                    px-3 py-2 sm:px-4 sm:py-2.5 
+                    text-xs sm:text-sm font-medium 
                     border 
                     transition-all 
                     cursor-pointer 
-                    flex items-center gap-2.5
-                    ${isHovered ? "scale-110 shadow-lg shadow-primary/20 border-primary/60" : ""}
+                    flex items-center gap-2 sm:gap-2.5
+                    touch-manipulation
+                    ${isHovered ? "scale-105 sm:scale-110 shadow-lg shadow-primary/20 border-primary/60" : ""}
+                    active:scale-95
                   `}
                 >
                   <Icon className="w-4 h-4" />

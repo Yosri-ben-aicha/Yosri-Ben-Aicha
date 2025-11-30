@@ -130,7 +130,7 @@ export default function Hero({ onContactClick }: HeroProps) {
           {/* Right Column - Profile Image */}
           <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-primary/20 to-cyan-500/20 p-1 animate-float">
+              <div className="w-48 h-48 xs:w-64 xs:h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-primary/20 to-cyan-500/20 p-1 animate-float">
                 <div className="w-full h-full rounded-full bg-background/50 backdrop-blur-sm p-2">
                   <Image
                     src="/profile.jpg"
@@ -144,8 +144,8 @@ export default function Hero({ onContactClick }: HeroProps) {
                 </div>
               </div>
               {/* Status Badge */}
-              <div className="absolute -bottom-4 -right-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-                <span className="text-sm font-medium text-primary">#OpenToWork</span>
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+                <span className="text-xs sm:text-sm font-medium text-primary">#OpenToWork</span>
               </div>
             </div>
           </div>
