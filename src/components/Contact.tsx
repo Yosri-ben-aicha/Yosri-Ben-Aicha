@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,22 +30,31 @@ export default function Contact() {
     setSubmitStatus("idle");
 
     try {
-      // Envoyer via l'API
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        }),
-      });
+      // Configuration EmailJS (gratuit jusqu'à 200 emails/mois)
+      // Remplacez ces valeurs par vos propres clés EmailJS
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_default";
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_default";
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key";
 
-      if (response.ok) {
-        // Ouvrir le client email avec le message pré-rempli
+      // Paramètres du template EmailJS
+      const templateParams = {
+        to_email: "benaicha@et.esiea.fr",
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        reply_to: formData.email,
+      };
+
+      // Essayer d'envoyer via EmailJS si configuré
+      if (publicKey !== "public_key") {
+        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        setSubmitStatus("success");
+        setIsSubmitting(false);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      } else {
+        // Fallback: ouvrir le client email avec le message pré-rempli
         const mailtoLink = `mailto:benaicha@et.esiea.fr?subject=${encodeURIComponent(
           formData.subject || "Message depuis le portfolio"
         )}&body=${encodeURIComponent(
@@ -56,14 +66,19 @@ export default function Contact() {
         setSubmitStatus("success");
         setIsSubmitting(false);
         setFormData({ name: "", email: "", subject: "", message: "" });
-        
-        // Réinitialiser le statut après 5 secondes
         setTimeout(() => setSubmitStatus("idle"), 5000);
-      } else {
-        throw new Error("Erreur lors de l'envoi");
       }
     } catch (error) {
-      setSubmitStatus("error");
+      console.error("Erreur:", error);
+      // En cas d'erreur, utiliser mailto comme fallback
+      const mailtoLink = `mailto:benaicha@et.esiea.fr?subject=${encodeURIComponent(
+        formData.subject || "Message depuis le portfolio"
+      )}&body=${encodeURIComponent(
+        `Bonjour Yosri,\n\n${formData.message}\n\nCordialement,\n${formData.name}\n${formData.email}`
+      )}`;
+      
+      window.location.href = mailtoLink;
+      setSubmitStatus("success");
       setIsSubmitting(false);
     }
   };
