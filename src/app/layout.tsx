@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yosri Ben Aicha",
-  description: "Portfolio professionnel de Yosri Ben Aicha, Ingénieur IA & Data Scientist spécialisé en Machine Learning, MLOps, architectures RAG et systèmes d'IA agentique. Étudiant en 3ème année à l'ESIEA Paris. Disponible pour stage Février 2026.",
+  title: {
+    default: "Yosri Ben Aicha",
+    template: "%s | Yosri Ben Aicha",
+  },
+  description: "Portfolio of Yosri Ben Aicha - AI Engineering Student specialized in Data Science and LLMs.",
   keywords: [
     "Yosri Ben Aicha",
     "Data Scientist",
@@ -31,6 +34,9 @@ export const metadata: Metadata = {
     "Azure AI",
     "ESIEA",
     "Paris",
+    "LLM",
+    "Large Language Models",
+    "Data Science",
   ],
   authors: [{ name: "Yosri Ben Aicha" }],
   creator: "Yosri Ben Aicha",
@@ -48,22 +54,29 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
       { url: "/logo.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },
-      { url: "/logo.svg", type: "image/svg+xml" },
     ],
     apple: [
+      { url: "/favicon.png", type: "image/png", sizes: "180x180" },
       { url: "/logo.png", type: "image/png", sizes: "180x180" },
     ],
     shortcut: "/favicon.ico",
   },
   openGraph: {
     title: "Yosri Ben Aicha",
-    description: "Portfolio professionnel de Yosri Ben Aicha, spécialisé en intelligence artificielle, machine learning et data science. Disponible pour stage Février 2026.",
+    description: "Portfolio of Yosri Ben Aicha - AI Engineering Student specialized in Data Science and LLMs.",
     type: "website",
     locale: "fr_FR",
     siteName: "Yosri Ben Aicha",
     images: [
+      {
+        url: "/favicon.png",
+        width: 1200,
+        height: 630,
+        alt: "Yosri Ben Aicha - Portfolio",
+      },
       {
         url: "/logo.png",
         width: 1200,
@@ -75,8 +88,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Yosri Ben Aicha",
-    description: "Portfolio professionnel spécialisé en intelligence artificielle et data science",
-    images: ["/logo.png"],
+    description: "Portfolio of Yosri Ben Aicha - AI Engineering Student specialized in Data Science and LLMs.",
+    images: ["/favicon.png", "/logo.png"],
   },
   viewport: {
     width: "device-width",
