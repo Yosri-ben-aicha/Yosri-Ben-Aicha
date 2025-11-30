@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yosri Ben Aicha - Ingénieur IA & Data Scientist | Portfolio",
+  title: "Yosri Ben Aicha",
   description: "Portfolio professionnel de Yosri Ben Aicha, Ingénieur IA & Data Scientist spécialisé en Machine Learning, MLOps, architectures RAG et systèmes d'IA agentique. Étudiant en 3ème année à l'ESIEA Paris. Disponible pour stage Février 2026.",
   keywords: [
     "Yosri Ben Aicha",
@@ -58,11 +58,11 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
   openGraph: {
-    title: "Yosri Ben Aicha - Ingénieur IA & Data Scientist",
+    title: "Yosri Ben Aicha",
     description: "Portfolio professionnel de Yosri Ben Aicha, spécialisé en intelligence artificielle, machine learning et data science. Disponible pour stage Février 2026.",
     type: "website",
     locale: "fr_FR",
-    siteName: "Yosri Ben Aicha Portfolio",
+    siteName: "Yosri Ben Aicha",
     images: [
       {
         url: "/logo.png",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yosri Ben Aicha - Ingénieur IA & Data Scientist",
+    title: "Yosri Ben Aicha",
     description: "Portfolio professionnel spécialisé en intelligence artificielle et data science",
     images: ["/logo.png"],
   },
