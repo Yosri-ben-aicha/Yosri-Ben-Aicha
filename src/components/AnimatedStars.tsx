@@ -32,10 +32,14 @@ export default function AnimatedStars() {
       velocity: number;
       opacity: number;
       twinkleSpeed: number;
+      canvasWidth: number;
+      canvasHeight: number;
 
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+      constructor(canvasWidth: number, canvasHeight: number) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
         this.radius = Math.random() * 1.5 + 0.5;
         this.velocity = Math.random() * 0.5 + 0.1;
         this.opacity = Math.random();
@@ -44,9 +48,9 @@ export default function AnimatedStars() {
 
       update() {
         this.y += this.velocity;
-        if (this.y > canvas.height) {
+        if (this.y > this.canvasHeight) {
           this.y = 0;
-          this.x = Math.random() * canvas.width;
+          this.x = Math.random() * this.canvasWidth;
         }
 
         // Twinkle effect
@@ -77,7 +81,7 @@ export default function AnimatedStars() {
     const stars: Star[] = [];
     const starCount = Math.floor((canvas.width * canvas.height) / 15000);
     for (let i = 0; i < starCount; i++) {
-      stars.push(new Star());
+      stars.push(new Star(canvas.width, canvas.height));
     }
 
     // Animation loop
