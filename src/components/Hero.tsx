@@ -130,14 +130,14 @@ export default function Hero({ onContactClick }: HeroProps) {
           {/* Right Column - Profile Image */}
           <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-2xl bg-gradient-to-br from-primary/20 to-cyan-500/20 p-1 animate-float">
-                <div className="w-full h-full rounded-2xl bg-background/50 backdrop-blur-sm p-2">
+              <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-primary/20 to-cyan-500/20 p-1 animate-float">
+                <div className="w-full h-full rounded-full bg-background/50 backdrop-blur-sm p-2">
                   <Image
                     src="/profile.jpg"
                     alt="Yosri Ben Aicha"
                     width={384}
                     height={384}
-                    className="w-full h-full rounded-xl object-cover"
+                    className="w-full h-full rounded-full object-cover"
                     priority
                     quality={95}
                   />
