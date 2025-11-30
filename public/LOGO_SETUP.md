@@ -2,16 +2,19 @@
 
 ## 📸 Votre Logo
 
-Votre logo (l'image avec "PORTFOLIO" et votre avatar) doit être placé dans le dossier `public/` avec l'un de ces noms:
+Pour que votre logo apparaisse à côté de l'URL dans le navigateur (comme Google et YouTube), vous devez placer votre fichier logo dans le dossier `public/` avec l'un de ces noms:
 
 ### Option 1: Format PNG (Recommandé)
-- **Nom du fichier:** `logo.png` ou `icon.png`
-- **Taille recommandée:** 512x512 pixels (ou au moins 32x32 pour le favicon)
+- **Nom du fichier:** `logo.png`
+- **Taille recommandée:** 
+  - 32x32 pixels (pour le favicon de base)
+  - 180x180 pixels (pour Apple Touch Icon)
+  - 512x512 pixels (pour les partages sociaux)
 - **Format:** PNG avec fond transparent (si possible)
 
 ### Option 2: Format SVG (Meilleure qualité)
-- **Nom du fichier:** `logo.svg` ou `icon.svg`
-- **Format:** SVG vectoriel
+- **Nom du fichier:** `logo.svg`
+- **Format:** SVG vectoriel (s'adapte à toutes les tailles)
 
 ### Option 3: Format ICO (Classique)
 - **Nom du fichier:** `favicon.ico`
@@ -20,26 +23,42 @@ Votre logo (l'image avec "PORTFOLIO" et votre avatar) doit être placé dans le 
 ## ✅ Configuration Actuelle
 
 Le site est configuré pour utiliser:
-- `/logo.png` comme favicon principal
+- `/logo.png` comme favicon principal (32x32)
 - `/favicon.ico` comme fallback
 - `/logo.svg` pour les navigateurs modernes
+- `/logo.png` (180x180) pour Apple Touch Icon
 
-## 📋 Après Ajout du Logo
+## 📋 Étapes pour Ajouter Votre Logo
 
-1. Placez votre fichier logo dans `public/`
-2. Redémarrez le serveur de développement
-3. Le logo apparaîtra dans:
-   - ✅ L'onglet du navigateur (favicon)
-   - ✅ Les favoris/bookmarks
-   - ✅ Les partages sur réseaux sociaux
-   - ✅ Les résultats de recherche
+1. **Préparez votre logo:**
+   - Si vous avez une image PNG/SVG de votre logo avec "PORTFOLIO"
+   - Redimensionnez-la à 32x32 pixels pour le favicon
+   - Ou utilisez un SVG qui s'adapte automatiquement
+
+2. **Placez le fichier dans `public/`:**
+   - Copiez votre logo dans `public/logo.png`
+   - (Optionnel) Créez aussi `public/favicon.ico` pour compatibilité
+
+3. **Redémarrez le serveur:**
+   - Le logo apparaîtra automatiquement dans l'onglet du navigateur
+
+## 🎯 Où le Logo Apparaîtra
+
+- ✅ **Onglet du navigateur** (favicon à côté de l'URL)
+- ✅ **Favoris/Bookmarks**
+- ✅ **Partages sur réseaux sociaux** (LinkedIn, Twitter, Facebook)
+- ✅ **Résultats de recherche Google**
+- ✅ **Écran d'accueil mobile** (iOS/Android)
 
 ## 🎯 Nom du Site
 
 Le nom du site est maintenant: **"Yosri Ben Aicha"**
 
 Il apparaîtra:
-- Dans l'onglet du navigateur
+- Dans l'onglet du navigateur (titre de la page)
 - Dans les résultats de recherche
 - Dans les partages sociaux
 
+## 💡 Astuce
+
+Si votre logo est complexe (avec texte "PORTFOLIO"), créez une version simplifiée pour le favicon (juste l'avatar ou les initiales "YB") car les favicons sont très petits (16x16 ou 32x32 pixels).
