@@ -2,7 +2,7 @@
 
 import Section from "./Section";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import SkillBadge from "./SkillBadge";
 import { Brain, Code, Database, BarChart, Settings, Sparkles, Zap, Layers, TrendingUp } from "lucide-react";
 
 const skillCategories = [
@@ -116,18 +116,14 @@ export default function Skills() {
                   <h3 className="text-xl font-semibold">{category.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) => {
-                    const SkillIcon = skill.icon;
-                    return (
-                      <Badge
-                        key={skillIndex}
-                        className={`${skill.color} px-4 py-2.5 text-sm font-medium border transition-all cursor-default flex items-center gap-2.5`}
-                      >
-                        <SkillIcon className="w-4 h-4" />
-                        <span>{skill.name}</span>
-                      </Badge>
-                    );
-                  })}
+                  {category.skills.map((skill, skillIndex) => (
+                    <SkillBadge
+                      key={skillIndex}
+                      name={skill.name}
+                      icon={skill.icon}
+                      color={skill.color}
+                    />
+                  ))}
                 </div>
               </Card>
             );
@@ -142,18 +138,14 @@ export default function Skills() {
             <h4 className="text-xl font-semibold">Outils & Environnements</h4>
           </div>
           <div className="flex flex-wrap gap-3">
-            {tools.map((tool, index) => {
-              const ToolIcon = tool.icon;
-              return (
-                <Badge
-                  key={index}
-                  className={`${tool.color} px-4 py-2.5 text-sm font-medium border transition-all cursor-default flex items-center gap-2.5`}
-                >
-                  <ToolIcon className="w-4 h-4" />
-                  <span>{tool.name}</span>
-                </Badge>
-              );
-            })}
+            {tools.map((tool, index) => (
+              <SkillBadge
+                key={index}
+                name={tool.name}
+                icon={tool.icon}
+                color={tool.color}
+              />
+            ))}
           </div>
         </Card>
       </div>

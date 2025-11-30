@@ -1,3 +1,7 @@
+// Next.js 15 will automatically use /logo.png from public/ folder as favicon
+// If logo.png exists, it will be used. Otherwise, this dynamic icon will be generated.
+// To use your avatar logo, simply place logo.png in the public/ folder.
+
 import { ImageResponse } from 'next/og'
  
 // Route segment config
@@ -10,11 +14,10 @@ export const size = {
 }
 export const contentType = 'image/png'
  
-// Image generation
+// Image generation (fallback if logo.png doesn't exist)
 export default function Icon() {
   return new ImageResponse(
     (
-      // ImageResponse JSX element
       <div
         style={{
           fontSize: 24,
