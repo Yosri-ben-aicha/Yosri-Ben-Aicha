@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "check-favicon": "node scripts/check-favicon.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
